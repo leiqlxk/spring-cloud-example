@@ -1,9 +1,6 @@
 server:
   port: 8761
 
-spring:
-  application:
-    name: eureka-server
 eureka:
   instance:
     hostname: localhost
@@ -17,10 +14,16 @@ eureka:
       #      defaultZone: http://localhost:8761/eureka/ # one eureka server
 #      defaultZone: http://localhost:8762/eureka/ # two eureka server
 #      defaultZone: http://localhost:8762/eureka/,http://localhost:8763/eureka/ # three eureka server
-      zone1: http://localhost:8761/eureka/,http://localhost:8762/eureka/
-      zone2: http://localhost:8763/eureka/,http://localhost:8764/eureka/
+#      多zone区演示
+#      zone1: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+#      zone2: http://localhost:8763/eureka/,http://localhost:8764/eureka/
+      zone1: http://localhost:8761/eureka/
+      zone2: http://localhost:8762/eureka/
     availability-zones:
+#      region-east: zone1,zone2
       region-east: zone1,zone2
   server:
     waitTimeInMsWhenSyncEmpty: 0
     enableSelfPreservation: false
+    remoteRegionUrlsWithName:
+      region-west: http://localhost:8763/eureka/

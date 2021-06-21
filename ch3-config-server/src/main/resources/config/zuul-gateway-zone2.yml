@@ -2,13 +2,13 @@ server:
   port: 10002
 
 eureka:
+  instance:
+    metadataMap.zone: zone3
   client:
-    instance:
-      metadataMap.zone: zone2
-    client:
-      region: region-east
-      service-url:
-        zone1: http://localhost:8761/eureka/,http://localhost:8762/eureka/
-        zone2: http://localhost:8763/eureka/,http://localhost:8764/eureka/
-      availability-zones:
-        region-east: zone1,zone2
+    prefer-same-zone-eureka: true
+    region: region-west
+    service-url:
+      zone3: http://localhost:8763/eureka/
+      zone4: http://localhost:8764/eureka/
+    availability-zones:
+      region-west: zone3,zone4
