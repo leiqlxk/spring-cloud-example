@@ -1,0 +1,54 @@
+server:
+  port: 8010
+spring:
+  application:
+    name: ch4-hello
+
+logging:
+  level:
+    org.lql.feign.service.HelloFeignService: debug
+
+feign:
+  compression:
+    request:
+      enabled: true
+      mime-types: text/xml,application/xml,application/json # 配置压缩支持的MIME TYPE
+      min-request-size: 2048  # 配置压缩数据大小的下限
+    response:
+      enabled: true # 配置响应GZIP压缩
+
+#@FeignClient的配置信息可以通过配置文件进行配置
+#feign:
+#  client:
+#    config:
+#      feignName: #需要配置的FeignName
+#        connectTimeout: 5000 #连接超时时间
+#        readTimeout: 5000 #读超时时间设置
+#        loggerLevel: full #配置Feign的日志级别
+#        errorDecoder: org.lql.SimpleErrorDecoder #Feign的错误解码器
+#        retryer: org.lql.SimpleRetryer #配置重试
+#        reuquestInterceptors: #配置拦截器
+#          - org.lql.FooRequestInterceptor
+#          - org.lql.BarRequestInterceptor
+#        decode404: false
+#        encoder: org.lql.SimpleEncoder #Feign编码器
+#        decoder: org.lql.SimpleDecoder #Feign解码器
+#        contract: org.lql.SimpleContract #Feign的Contract配置
+
+#使用default使得配置作用于所有Feign，相当于@EnableFeignClients(defaultConfiguration=DefaultFeignConfiguration.class)
+#feign:
+#  client:
+#    config:
+#      default:
+#        connectTimeout: 5000 #连接超时时间
+#        readTimeout: 5000 #读超时时间设置
+#        loggerLevel: full #配置Feign的日志级别
+#        errorDecoder: org.lql.SimpleErrorDecoder #Feign的错误解码器
+#        retryer: org.lql.SimpleRetryer #配置重试
+#        reuquestInterceptors: #配置拦截器
+#          - org.lql.FooRequestInterceptor
+#          - org.lql.BarRequestInterceptor
+#        decode404: false
+#        encoder: org.lql.SimpleEncoder #Feign编码器
+#        decoder: org.lql.SimpleDecoder #Feign解码器
+#        contract: org.lql.SimpleContract #Feign的Contract配置

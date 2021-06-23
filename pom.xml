@@ -15,6 +15,7 @@
         <module>ch3-eureka-server</module>
         <module>ch3-config-server</module>
         <module>ch3-zuul-gateway</module>
+        <module>ch4-hello</module>
     </modules>
 
     <parent>
