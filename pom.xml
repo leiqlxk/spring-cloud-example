@@ -16,6 +16,11 @@
         <module>ch3-config-server</module>
         <module>ch3-zuul-gateway</module>
         <module>ch4-hello</module>
+        <module>ch4-httpclient</module>
+        <module>ch4-okhttp</module>
+        <module>ch4-eureka-server</module>
+        <module>ch4-consumer</module>
+        <module>ch4-provider</module>
     </modules>
 
     <parent>

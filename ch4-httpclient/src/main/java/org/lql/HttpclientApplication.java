@@ -5,19 +5,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
- * Title: SpringCloudFeignApplication <br>
+ * Title: HttpclientApplication <br>
  * ProjectName: spring-cloud-example <br>
- * description: feign 的client默认使用URLConnection发送请求 <br>
+ * description: 使用http client替换默认客户端 <br>
  *
  * @author: leiql <br>
  * @version: 1.0 <br>
- * @since: 2021/6/23 15:57 <br>
+ * @since: 2021/6/24 11:10 <br>
  */
 @SpringBootApplication
 @EnableFeignClients
-public class SpringCloudFeignApplication {
+public class HttpclientApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringCloudFeignApplication.class, args);
+        SpringApplication.run(HttpclientApplication.class, args);
     }
 }
