@@ -30,3 +30,5 @@ ribbon:
   eager-load:
     enabled: true
     clients: client-a,client-b,client-c
+
+
