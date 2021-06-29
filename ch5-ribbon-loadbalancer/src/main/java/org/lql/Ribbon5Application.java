@@ -1,10 +1,15 @@
 package org.lql;
 
+import org.lql.annotiation.AvoidScan;
+import org.lql.config.RibbonConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -18,6 +23,9 @@ import org.springframework.web.client.RestTemplate;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
+// 针对某一个源服务设置其特有的策略,使用一个空注解来排除扫描配置类，因为此处并非全局配置而是特定源服务的配置
+@RibbonClient(name = "client-a", configuration = RibbonConfiguration.class)
+@ComponentScan(excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, value = {AvoidScan.class})})
 public class Ribbon5Application {
 
     public static void main(String[] args) {

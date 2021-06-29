@@ -10,3 +10,23 @@ eureka:
   client:
     service-url:
       defaultZone: http://${eureka.host:localhost}:8761/eureka/
+
+#若不喜欢使用配置类来配置负载均衡策略可以使用配置文件进行配置，其基本语法为<client name>.ribbon.*
+#client-a:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+#超时与重试
+client-a:
+  ribbon:
+    ConnectTimeout: 30000
+    ReadTimeout: 30000
+    MaxAutoRetries: 1 #对第一次请求的服务的重试次数
+    MaxAutoRetriesNextServer: 1 #要重试的下一个服务的最大数量（不包括第一个服务）
+    OkToRetryOnAllOperations: true
+
+#ribbon的延迟加载，其在进行客户端负载均衡的时候并不是在启动时就加载上下文，而是在实际请求的时候才去创建，因此这个特性会让我们的第一次调用显得颇为疲软乏力，所以
+ribbon:
+  eager-load:
+    enabled: true
+    clients: client-a,client-b,client-c
