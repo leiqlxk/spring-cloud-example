@@ -1,6 +1,8 @@
 package org.lql.service.impl;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.cache.annotation.CacheKey;
+import com.netflix.hystrix.contrib.javanica.cache.annotation.CacheResult;
 import org.lql.service.IUserService;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +19,10 @@ import org.springframework.stereotype.Service;
 public class UserService implements IUserService {
 
     @Override
+    // 使用注解开启hystrix的缓存
+    @CacheResult
     @HystrixCommand(fallbackMethod = "defaultUser")
-    public String getUser(String username) throws Exception {
+    public String getUser(@CacheKey String username) throws Exception {
         if (username.equals("spring")) {
             return "this is real user";
         }else {
