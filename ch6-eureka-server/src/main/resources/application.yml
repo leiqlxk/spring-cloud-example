@@ -1,0 +1,24 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: eureka-server
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      default-zone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    wait-time-in-ms-when-sync-empty: 0
+    use-read-only-response-cache: false
+    response-cache-auto-expiration-in-seconds: 0
+    enable-self-preservation: false

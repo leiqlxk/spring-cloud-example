@@ -24,6 +24,9 @@
         <module>ch5-eureka-server</module>
         <module>ch5-client-a</module>
         <module>ch5-ribbon-loadbalancer</module>
+        <module>ch6-client-service</module>
+        <module>ch6-eureka-server</module>
+        <module>ch6-consumer-service</module>
     </modules>
 
     <parent>
