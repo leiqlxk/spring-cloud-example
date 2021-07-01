@@ -1,0 +1,16 @@
+server:
+  port: 7777
+  servlet:
+    context-path: /uaa
+
+spring:
+  application:
+    name: auth-server
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+

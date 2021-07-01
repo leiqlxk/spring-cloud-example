@@ -27,6 +27,11 @@
         <module>ch6-client-service</module>
         <module>ch6-eureka-server</module>
         <module>ch6-consumer-service</module>
+        <module>ch7-eureka-server</module>
+        <module>ch7-zuul-server</module>
+        <module>ch7-client-a</module>
+        <module>ch8-zuul-server</module>
+        <module>ch8-auth-server</module>
     </modules>
 
     <parent>

@@ -1,0 +1,83 @@
+server:
+  port: 5555
+
+spring:
+  application:
+    name: zuul-server
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+
+#路由规则配置，配置所有client开头的URL映射到client-a这个服务中去
+#zuul:
+#  routes:
+#    client-a:
+#      path: /client/**
+#      serviceId: client-a
+#路由规则简化配置
+zuul:
+  routes:
+    client-a: /client/**
+#    使用统一前缀
+  prefix: /pre
+#  忽略服务，防止服务侵入
+  ignored-services: client-b
+#  忽略接口，屏蔽接口
+  ignored-patterns: /**/div/**
+  #  设置敏感头
+  sensitive-headers: Cookie,Set-Cookie,Authorization
+  # 解决认证后跳转欢迎页暴露host问题
+  add-host-header: true
+#  开启重试，配合ribbon做重试
+  retryable: true
+
+#ribbon:
+##  同一个服务重试次数（去除首次）
+#  MaxAutoRetries: 1
+##  切换相同服务数量
+#  MaxAutoRetriesServer: 1
+#路由规则最简化
+#zuul:
+#  routes:
+#    client-a:
+
+#单实例url映射，即除了能路由到服务外还可以直接路由到物理地址
+#zuul:
+#  routes:
+#    client-a:
+#      path: /client/**
+#      url: http://localhost:7070
+
+#多实例路由，在默认情况下zuul会使用Eureka中集成的基本负载均衡功能，如果想要使用Ribbon的负载均衡功能，就需要指定一个serviceId，此操作需要禁止Ribbon使用Eureka
+#zuul:
+#  routes:
+#    ribbon-route:
+#      path: /ribbon/**
+#      serviceId: ribbon-route
+
+# 禁止ribbon使用eureka
+#ribbon:
+#  eureka:
+#    enabled: false
+#
+#ribbon-route:
+#  ribbon:
+#    NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+#    listOfServers: localhost:7070,localhost:7071
+
+#本地跳转
+#zuul:
+#  routes:
+#    client-a:
+#      path: /client/**
+#      url: forward:/client
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
