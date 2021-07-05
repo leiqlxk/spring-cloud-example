@@ -4,6 +4,11 @@ server:
 spring:
   application:
     name: zuul-server
+  datasource:
+    url: jdbc:mysql://120.78.210.146:3306/sampledb?useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: Zh@123456
 
 eureka:
   client:
@@ -11,8 +16,8 @@ eureka:
       default-zone: http://localhost:8761/eureka/
 
 zuul:
-  routes:
-    client-a: /client/**
+#  routes:
+#    client-a: /client/**
   ratelimit:
     key-prefix: springcloud #按粒度拆分的临时变量key前缀
     enabled: true #启用开关

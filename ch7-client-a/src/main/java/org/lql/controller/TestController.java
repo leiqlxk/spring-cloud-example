@@ -19,4 +19,24 @@ public class TestController {
     public Integer add(Integer a, Integer b) {
         return a + b;
     }
+
+    @GetMapping("/a/add")
+    public Integer aadd(Integer a, Integer b){
+        return a + b;
+    }
+
+    @GetMapping("/sub")
+    public Integer sub(Integer a, Integer b){
+        return a - b;
+    }
+
+    @GetMapping("/mul")
+    public String mul(Integer a, Integer b){
+        return "client-a-" + a * b;
+    }
+
+    @GetMapping("/div")
+    public Integer div(Integer a, Integer b){
+        return a / b;
+    }
 }

@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * Title: FilterConfig <br>
  * ProjectName: spring-cloud-example <br>
- * description: TODO <br>
+ * description: 过滤器配置类 <br>
  *
  * @author: leiql <br>
  * @version: 1.0 <br>
@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class FilterConfig {
-
+/*
     @Bean
     public FirstPreFilter firstPreFilter() {
         return new FirstPreFilter();
@@ -37,5 +37,5 @@ public class FilterConfig {
     @Bean
     public FirstPostFilter firstPostFilter() {
         return new FirstPostFilter();
-    }
+    }*/
 }
