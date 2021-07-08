@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: sc-data-service
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://${eureka.host:127.0.0.1}:${eureka.port:8761}/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream

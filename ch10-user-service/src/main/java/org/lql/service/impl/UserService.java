@@ -1,7 +1,11 @@
 package org.lql.service.impl;
 
 import org.lql.service.IUserService;
+import org.lql.service.dataservice.DataService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -16,18 +20,26 @@ import java.util.List;
  */
 @Service
 public class UserService implements IUserService {
+
+    @Autowired
+    private DataService dataService;
+
+    @Autowired
+    private RestTemplate restTemplate;
+
     @Override
     public String getDefaultUser() {
-        return null;
+        return dataService.getDefaultUser();
     }
 
     @Override
     public String getContextUserId() {
-        return null;
+        return dataService.getContextUserId();
     }
 
     @Override
     public List<String> getProviderData() {
-        return null;
+        List<String> result = restTemplate.getForObject("http://sc-data-service/getProviderData", List.class);
+        return result;
     }
 }

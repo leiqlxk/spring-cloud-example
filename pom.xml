@@ -34,6 +34,10 @@
         <module>ch8-auth-server</module>
         <module>ch10-user-service</module>
         <module>ch10-common</module>
+        <module>ch10-eureka-server</module>
+        <module>ch10-config-server</module>
+        <module>ch10-data-service</module>
+        <module>ch10-zuul-server</module>
     </modules>
 
     <parent>
