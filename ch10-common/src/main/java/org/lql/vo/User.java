@@ -1,0 +1,63 @@
+package org.lql.vo;
+
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * Title: User <br>
+ * ProjectName: spring-cloud-example <br>
+ * description: 用户对象 <br>
+ *
+ * @author: leiql <br>
+ * @version: 1.0 <br>
+ * @since: 2021/7/8 11:34 <br>
+ */
+public class User implements Serializable {
+    private static final long serialVersionUID = -4083327605430665846L;
+
+    public final static String CONTEXT_KEY_USERID = "x-customs-user";
+
+    /**
+     * 用户ID
+     */
+    private String userId;
+
+    private String userName;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+
+    public User() {
+
+    }
+
+    public User(Map<String, String> headers) {
+        userId = headers.get(CONTEXT_KEY_USERID);
+    }
+
+
+    /**
+     * 将user对象转换成为http对象头
+     * @return http头键值对
+     */
+    public Map<String, String> toHttpHeaders() {
+        Map<String, String> headers = new HashMap<>();
+        headers.put(CONTEXT_KEY_USERID,userId);
+        return headers;
+    }
+}

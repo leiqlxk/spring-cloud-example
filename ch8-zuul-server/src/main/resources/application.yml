@@ -9,6 +9,19 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: Zh@123456
+  #文件上传
+  servlet: #spring-boot 2.0之前是http
+    multipart:
+      enabled: true #使用http multipart上传处理
+      max-file-size: 100MB #单个文件最大长度，-1为不限制
+      max-request-size: 100MB #设置最大的请求文件的大小，默认10MB，-1为不限制
+      file-size-threshold: 1MB #当上传文件达到1MB的时候进行磁盘写入
+      location: / #上传的临时目录
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true #内部默认已开启，这里列出来说明这个参数比较重要
+
 
 eureka:
   client:
@@ -16,6 +29,10 @@ eureka:
       default-zone: http://localhost:8761/eureka/
 
 zuul:
+  retryable: true #开启重试，D版之后默认为false，需要手动开启
+  ribbon:
+    eager-load:
+      enabled: true #开启饥饿加载模式
 #  routes:
 #    client-a: /client/**
   ratelimit:
@@ -32,6 +49,19 @@ zuul:
 #        - origin #可指定客户端地址粒度
 #        - url #可指定url粒度
 
+#禁用HttpClient并开启OkHttp
+ribbon:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+#重试机制配置
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout: 60000
+  MaxAutoRetries: 1 #对第一次请求的服务的重试次数
+  MaxAutoRetriesNextServer: 1 #要重试的下一个服务的最大数量（不包括第一个服务）
+  OkToRetryOnAllOperations: true
 
 management:
   endpoints:

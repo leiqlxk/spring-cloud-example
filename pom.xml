@@ -32,6 +32,8 @@
         <module>ch7-client-a</module>
         <module>ch8-zuul-server</module>
         <module>ch8-auth-server</module>
+        <module>ch10-user-service</module>
+        <module>ch10-common</module>
     </modules>
 
     <parent>

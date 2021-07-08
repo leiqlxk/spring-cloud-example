@@ -8,6 +8,8 @@ spring:
 eureka:
   instance:
     prefer-ip-address: true
+    metadata-map:
+      host-mark: running-host #灰度发布使用
   client:
     service-url:
       default-zone: http://localhost:8761/eureka/
