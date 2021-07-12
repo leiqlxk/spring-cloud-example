@@ -14,7 +14,7 @@ import java.io.InputStream;
 /**
  * Title: ZuulFallback <br>
  * ProjectName: spring-cloud-example <br>
- * description: TODO <br>
+ * description: 网关失败回调处理 <br>
  *
  * @author: leiql <br>
  * @version: 1.0 <br>

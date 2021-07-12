@@ -63,6 +63,10 @@ public class AuthFilter extends ZuulFilter {
         return headers;
     }
 
+    /**
+     * 将用户信息保存到头部往下传递
+     * @param ctx
+     */
     public static void authUser(RequestContext ctx) {
         HttpServletRequest request = ctx.getRequest();
         Map<String, String> header = httpRequestToMap(request);

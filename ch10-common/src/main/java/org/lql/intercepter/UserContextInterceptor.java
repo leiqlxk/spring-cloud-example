@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Title: UserContextInterceptor <br>
  * ProjectName: spring-cloud-example <br>
- * description: TODO <br>
+ * description: 进入controller控制器时会拦截到请求，从header中解析出用户对象出入上下文中 <br>
  *
  * @author: leiql <br>
  * @version: 1.0 <br>

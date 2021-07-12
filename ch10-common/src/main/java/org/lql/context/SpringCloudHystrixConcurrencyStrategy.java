@@ -21,12 +21,13 @@ import java.util.concurrent.TimeUnit;
 /**
  * Title: SpringCloudHystrixConcurrencyStrategy <br>
  * ProjectName: spring-cloud-example <br>
- * description: TODO <br>
+ * description: Hystrix并发策略 <br>
  *
  * @author: leiql <br>
  * @version: 1.0 <br>
  * @since: 2021/7/8 21:45 <br>
  */
+// 此类使用ThreadLocal对象来保存用户信息，由于线程池隔离的模式下会导致前后线程传递对象丢失，这里使用自定义并发策略HystrixConcurrencyStrategy来解决
 public class SpringCloudHystrixConcurrencyStrategy extends HystrixConcurrencyStrategy {
 
     private HystrixConcurrencyStrategy delegateHystrixConcurrencyStrategy;
