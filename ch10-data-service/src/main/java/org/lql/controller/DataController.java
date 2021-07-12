@@ -4,6 +4,7 @@ import org.lql.config.DataConfig;
 import org.lql.context.UserContextHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.List;
  * @version: 1.0 <br>
  * @since: 2021/7/8 22:49 <br>
  */
+@RestController
 public class DataController {
 
     @Autowired

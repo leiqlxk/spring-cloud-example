@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @version: 1.0 <br>
  * @since: 2021/7/8 22:06 <br>
  */
-@FeignClient(name = "data-service", fallback = UserClientFallback.class)
+@FeignClient(name = "sc-data-service", fallback = UserClientFallback.class)
 public interface DataService {
 
     @RequestMapping(value = "/getDefaultUser", method = RequestMethod.GET)
