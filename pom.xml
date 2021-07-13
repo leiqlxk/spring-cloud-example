@@ -38,6 +38,8 @@
         <module>ch10-config-server</module>
         <module>ch10-data-service</module>
         <module>ch10-zuul-server</module>
+        <module>ch11-config-server</module>
+        <module>ch11-config-client</module>
     </modules>
 
     <parent>

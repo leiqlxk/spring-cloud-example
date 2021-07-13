@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/zhongzunfa/spring-cloud-config.git
+          search-paths: SC-BOOK-CONFIG #搜索SC-BOOK-CONFIG目录下所有满足条件的配置文件，可以配置多个目录用逗号隔开
+#          password:
+#          username:
+  application:
+    name: sc-config-git
+
+server:
+  port: 9090
