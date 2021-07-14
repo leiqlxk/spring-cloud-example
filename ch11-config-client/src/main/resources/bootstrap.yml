@@ -9,3 +9,11 @@ spring:
       uri: http://localhost:9090
       name: config-info #[application]
       profile: dev
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always

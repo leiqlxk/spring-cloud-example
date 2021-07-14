@@ -1,6 +1,7 @@
 package org.lql.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Component;
 
 /**
@@ -13,6 +14,8 @@ import org.springframework.stereotype.Component;
  * @since: 2021/7/13 17:41 <br>
  */
 @Component
+// 此注解修饰的Bean都是延迟加载的，只有在第一次访问时才会被初始化，刷新Bean也是同理
+@RefreshScope
 @ConfigurationProperties(prefix = "cn.springcloud.book")
 public class ConfigInfoProperties {
 

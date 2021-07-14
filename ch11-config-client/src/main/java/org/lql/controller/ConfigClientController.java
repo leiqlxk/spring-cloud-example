@@ -2,6 +2,7 @@ package org.lql.controller;
 
 import org.lql.config.ConfigInfoProperties;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since: 2021/7/13 17:42 <br>
  */
 @RestController
+@RefreshScope
 public class ConfigClientController {
 
     @Autowired
