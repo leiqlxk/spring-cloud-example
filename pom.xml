@@ -44,6 +44,8 @@
         <module>ch15-core-service</module>
         <module>ch15-provider-service</module>
         <module>ch15-client-service</module>
+        <module>ch16-sleuth-consumer</module>
+        <module>ch16-sleuth-provider</module>
     </modules>
 
     <parent>
