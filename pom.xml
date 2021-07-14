@@ -40,6 +40,10 @@
         <module>ch10-zuul-server</module>
         <module>ch11-config-server</module>
         <module>ch11-config-client</module>
+        <module>ch15-gateway</module>
+        <module>ch15-core-service</module>
+        <module>ch15-provider-service</module>
+        <module>ch15-client-service</module>
     </modules>
 
     <parent>
