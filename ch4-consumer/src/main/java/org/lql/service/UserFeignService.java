@@ -6,6 +6,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Title: UserFeignService <br>
@@ -24,4 +25,7 @@ public interface UserFeignService {
 
     @RequestMapping(value = "/user/update", method = RequestMethod.POST)
     String updateUser(@RequestBody User user);
+
+    @RequestMapping(value = "/user/hello", method = RequestMethod.GET)
+    String hello(@RequestParam String name);
 }

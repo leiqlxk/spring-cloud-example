@@ -1,0 +1,28 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: sc-gateway-server
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          lower-case-service-id: true #表示当注册中心为eureka时，开启小写的serviceId进行基于服务路由的转发
+          enabled: true #是否与服务发现组件进行结合，通过serviceId转发到具体的服务实例，默认为false，若为true便开启基于服务发现的路由规则
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

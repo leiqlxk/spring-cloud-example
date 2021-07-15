@@ -47,6 +47,7 @@
         <module>ch16-sleuth-consumer</module>
         <module>ch16-sleuth-provider</module>
         <module>ch17-gateway</module>
+        <module>ch18-gateway</module>
     </modules>
 
     <parent>

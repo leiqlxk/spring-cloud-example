@@ -20,7 +20,7 @@ import java.util.*;
  * @version: 1.0 <br>
  * @since: 2021/6/24 14:18 <br>
  */
-@Component
+//@Component
 public class FeignRequestInterceptor implements RequestInterceptor {
     @Autowired
     private ObjectMapper objectMapper;

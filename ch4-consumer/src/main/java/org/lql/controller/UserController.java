@@ -4,10 +4,9 @@ import io.swagger.annotations.ApiParam;
 import org.lql.domain.User;
 import org.lql.service.UserFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
 
 /**
  * Title: UserController <br>
@@ -33,5 +32,10 @@ public class UserController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String updateUser(@RequestBody @ApiParam(name = "用户", value = "传入json格式", required = true) User user) {
         return userFeignService.updateUser(user);
+    }
+
+    @GetMapping("/{name}")
+    public String index(@PathVariable("name") String name){
+        return userFeignService.hello(name) + "\n" + new Date().toString();
     }
 }

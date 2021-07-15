@@ -2,10 +2,7 @@ package org.lql.controller;
 
 
 import org.lql.domain.User;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.nio.channels.ClosedSelectorException;
 
@@ -32,4 +29,8 @@ public class UserController {
         return  "hello, " + user.getName();
     }
 
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    public String hello(@RequestParam String name) {
+        return "hello, " + name;
+    }
 }
