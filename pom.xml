@@ -48,6 +48,7 @@
         <module>ch16-sleuth-provider</module>
         <module>ch17-gateway</module>
         <module>ch18-gateway</module>
+        <module>ch18-2-gateway</module>
     </modules>
 
     <parent>
